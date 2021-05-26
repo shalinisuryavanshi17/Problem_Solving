@@ -77,7 +77,7 @@ import java.util.Scanner;
 	//write deleteFromStart() to delete a node from the beginning of the list  
 	 public void deleteFromStart()
     {
-        if(head==null)
+        if(head.next==null)
         {
             System.out.print("list is empty");
         }
@@ -96,7 +96,7 @@ import java.util.Scanner;
         Node last=tail;
         last.next=null;
         Node temp=head;
-        if(tail!=null)
+        if(tail.next!=null)
         {
             while(temp.next!=last)
             {
@@ -106,22 +106,22 @@ import java.util.Scanner;
             tail=temp;
 
         }
-        System.out.println("List is empty");
+       // System.out.println("List is empty");
        
     }
     public int count()
     {
-        int count=0;
+        int count=1;
         Node curr=head;
         while(curr.next!=head)
         {
             count++;
         }
-        count++;
+        
         if(count==1)
         {
-            head=null;
-            tail=null;
+            head.next=null;
+            tail.next=null;
             //System.out.println("list is empty");
         }
         return count;
@@ -131,7 +131,7 @@ import java.util.Scanner;
 	public void display()
 	{
 	    Node current=head;
-        if(head==null||tail==null)
+        if(head.next==null||tail.next==null)
         {
             System.out.println("list is empty");
         }
