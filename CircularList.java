@@ -1,3 +1,4 @@
+
 /* Write a java program to perform following operations on Circular Linked list
 
 1. Insert a node at beginning and at the end of the CLL.
@@ -23,162 +24,139 @@ Circular Linked List after deleting first element: List is empty
                                                                                                                         
 */
 import java.util.Scanner;
+
 //create Node class
+class CLL {
+    class Node {
+        int data;
+        Node next;
 
-
- class CLL 
-{
-     class Node
-{
-    int data;
-    Node next;
-    Node(int data,Node next)
-    {
-        this.data=data;
-        this.next=next;
+        Node(int data, Node next) {
+            this.data = data;
+            this.next = next;
+        }
     }
-}
 
-    Node head=null;
-    Node tail=null;
-	//declare required data memebers
-	
-	
-  
-    //write addAtStart() to add a new node to the beginning of the list  
-    public void addAtStart(int data)
-    {
-        Node newNode= new Node(data,null);
+    Node head = null;
+    Node tail = null;
+    // declare required data memebers
+
+    // write addAtStart() to add a new node to the beginning of the list
+    public void addAtStart(int data) {
+        Node newNode = new Node(data, null);
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            newNode.next = head;
+            head = newNode;
+            tail.next = newNode;
+        }
+
+    }
+
+    // write addAtEnd() to add a new node to the end of the list
+    public void addAtEnd(int data) {
+        Node newNode = new Node(data, null);
+        if (tail == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.next = newNode;
+            tail = newNode;
+            tail.next = head;
+        }
+
+    }
+
+    // write deleteFromStart() to delete a node from the beginning of the list
+    public void deleteFromStart() {
+        if (head != tail) {
+            Node temp = head.next;
+            head.next = null;
+            head = temp;
+            tail.next = head;
+
+        } else {
+            head = tail = null;
+        }
+
+    }
+
+    // write deleteFromEnd() to delete a node from end of the list
+    public void deleteFromEnd() {
+        if (tail != head) {
+            Node temp = tail;
+            tail.next = null;
+            tail = temp;
+            Node curr = head;
+            while (curr.next != tail) {
+                curr = curr.next;
+            }
+
+            tail = curr;
+            tail.next = head;
+        } else {
+            head = tail = null;
+        }
+
+    }
+
+    // write display() to display the list
+    public void display() {
         if(head==null)
         {
-            head=newNode;
+            System.out.println("List is empty");
+            return;
         }
-        newNode.next=head;
-        head=newNode;
-        tail.next=head;
-    }
-	
-	
-	//write addAtEnd() to add a new node to the end of the list  
-    public void addAtEnd(int data)
-    {
-        Node newNode= new Node(data,null);
-        if(tail==null || head==null)
+        if(head==tail)
         {
-            head=newNode;
-            tail=newNode;
+            System.out.println(head.data+" ");
+            return;
         }
-        tail.next=newNode;
-        tail=newNode;
-        tail.next=head;
-    }
-    
-      
-	//write deleteFromStart() to delete a node from the beginning of the list  
-	 public void deleteFromStart()
-    {
-        if(head.next==null)
-        {
-            System.out.print("list is empty");
-        }
-        Node temp=head.next;
-        head.next=null;
-        head=temp;
-        tail.next=head;
-       
-        
-    }
-	 
-    
-    //write deleteFromEnd() to delete a node from end of the list  
-    public void deleteFromEnd()
-    {
-        Node last=tail;
-        last.next=null;
-        Node temp=head;
-        if(tail.next!=null)
-        {
-            while(temp.next!=last)
-            {
-                temp=temp.next;
-            }
-            temp.next=head;
-            tail=temp;
-
-        }
-       // System.out.println("List is empty");
-       
-    }
-    public int count()
-    {
-        int count=1;
-        Node curr=head;
-        while(curr.next!=head)
-        {
-            count++;
-        }
-        
-        if(count==1)
-        {
-            head.next=null;
-            tail.next=null;
-            //System.out.println("list is empty");
-        }
-        return count;
-    }
-    
-    //write display() to display the list	
-	public void display()
-	{
-	    Node current=head;
-        if(head.next==null||tail.next==null)
-        {
-            System.out.println("list is empty");
-        }
-	    while(current.next!=head)
+        if (head == null || tail == null) {
+            System.out.print("List is empty");
+        } else {
+            Node current = head;
+           do
 	    {
 	        System.out.print(current.data+" ");
 	        current=current.next;
-	    }
-        System.out.print(current.data);
+	    } while(current!=head);
+        //System.out.print(current.data);
         System.out.println();
-	}
-	  
-  
-     
-} 
-class CircularList
-{
-    public static void main(String[] args) 
-	{
-		Scanner sc=new Scanner(System.in);
-		int n = sc.nextInt();
-		
-		CLL list = new CLL(); 
-		for(int i=0;i<n;i++)
-		    list.addAtEnd(sc.nextInt());
-	    
-	    System.out.print("Circular Linked List: ");
-	    list.display();
-	    
-	    System.out.println("Enter an element to add at beginning of the list: ");
-	    int e1=sc.nextInt();
-	    list.addAtStart(e1);
-	    
-	    System.out.println("Updated Circular Linked List: ");
-	    list.display();
-	    
-	   System.out.println("Circular Linked List after deleting last element: ");
-	   list.deleteFromEnd();
-	   list.display();
-	    
-	   System.out.println("Circular Linked List after deleting first element: ");
-	   list.deleteFromStart();
-    //    if(list.count()==0)
-    //    {
-    //        System.out.println("List is empty");
-    //    }
-	   list.display();
-       //System.out.println("count is "+list.count());
-    } 
+        }
+
+    }
+
+}
+
+public class CircularList {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        CLL list = new CLL();
+        for (int i = 0; i < n; i++)
+            list.addAtEnd(sc.nextInt());
+
+        System.out.println("Circular Linked List: ");
+        list.display();
+
+        System.out.println("Enter an element to add at beginning of the list: ");
+        int e1 = sc.nextInt();
+        list.addAtStart(e1);
+
+        System.out.println("Updated Circular Linked List: ");
+        list.display();
+
+        System.out.println("Circular Linked List after deleting last element: ");
+        list.deleteFromEnd();
+        list.display();
+
+        System.out.println("Circular Linked List after deleting first element: ");
+        list.deleteFromStart();
+        list.display();
+    }
 }

@@ -12,7 +12,7 @@ public class Test {
         
         if(Character.isDigit(a))
         {
-            String b =String.valueOf(a*ff);
+            //String b =String.valueOf(a*ff);
         }  
     }
 }

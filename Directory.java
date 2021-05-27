@@ -1,4 +1,4 @@
-Example 1:
+/*Example 1:
 Input: path = "/home/"
 Output: "/home"
 Explanation: Note that there is no trailing slash after the last directory name.
@@ -22,7 +22,7 @@ path is a valid absolute Unix path.
 import java.util.Arrays;
 import java.util.Stack;
 
-public class SimplePath {
+public class Directory {
     public static void main(String[] args) {
        String path="/home/";
         System.out.println(solver(path));
