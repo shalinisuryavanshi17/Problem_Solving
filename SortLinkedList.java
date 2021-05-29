@@ -24,7 +24,6 @@ public class SortLinkedList
     public Node head = null;  
     public Node tail = null;  
     PriorityQueue<Integer> min = new PriorityQueue<>(new Comparator<Integer>(){
-        @override
         public int compare(Integer a,Integer b)
         {
             return Integer.compare(a,b);
