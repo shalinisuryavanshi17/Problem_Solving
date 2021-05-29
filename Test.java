@@ -1,18 +1,34 @@
 import java.util.HashMap;
 import java.util.Map;
 
+class A
+{   static
+    {
+        System.out.print("static");
+    }
+    {
+        System.out.println("block");
+    }
+    A()
+    {
+        System.out.println("A");
+    }
+    public int add(int i,int j)
+    {
+        return i+j;
+    }
+}
 public class Test {
+    public static void go(Short s)
+    {
+        System.out.println("short");
+    }
     public static void main(String[] args) {
-        Map<String,String> map = new HashMap<>();
-        map.put("[", "]");
-        System.out.println(map.containsKey("["));
-        StringBuilder sb = new StringBuilder("a");
-        String str="";
-        int a=78;
-        
-        if(Character.isDigit(a))
-        {
-            //String b =String.valueOf(a*ff);
-        }  
+       A obj = new A();
+       short a=3;
+       int b=9;
+       System.out.println(obj.add(a, b));
+       short s=2;
+       go(s);
     }
 }
