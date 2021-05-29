@@ -13,8 +13,8 @@ output=
 import java.util.*;
 
 class NumStarPattern {
-    public static void getPattern(StringBuilder sb, int ele, int n) {
-        for (int i = 1; i < sb.length(); i++) {
+    public static void getPattern(StringBuilder sb, int ele) {
+        for (int i = 0; i < sb.length(); i++) {
             if (sb.charAt(i) != '*') {
 
                 if (Integer.parseInt(String.valueOf(sb.charAt(i))) == ele) {
@@ -48,11 +48,9 @@ class NumStarPattern {
             stack.push(i + 1);
         }
 
-        String s = sb.toString();
-        char arr[] = s.toCharArray();
         System.out.println(sb);
         while (stack.peek() != 1) {
-            getPattern(sb, stack.pop(), arr.length);
+            getPattern(sb, stack.pop());
         }
     }
 }
