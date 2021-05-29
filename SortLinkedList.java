@@ -86,6 +86,7 @@ public class SortLinkedList
         
         list.sortList();  
         list.display();  
+        sc.close();
     }  
 } 
 

@@ -7,7 +7,7 @@ public class Fibonacci {
         {
             System.out.println(fib(i));
         }
-        
+        sc.close();  
     }
     public static int fib(int n)
     {

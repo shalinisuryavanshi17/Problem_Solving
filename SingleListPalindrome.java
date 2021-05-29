@@ -71,10 +71,12 @@ class SingleListPalindrome
         Scanner sc = new Scanner(System.in);
         int n=sc.nextInt();
         SingleListPalindrome obj = new SingleListPalindrome();
+        
         for(int i=0;i<n;i++)
         {
             obj.addNode1(sc.nextInt());
         }
+        sc.close();
         if(obj.isPalindrome())
         {
             System.out.println("Given singly linked list is a palindrome");

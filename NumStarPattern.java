@@ -39,6 +39,7 @@ class NumStarPattern {
         for (int i = 0; i < n; i++) {
             str += String.valueOf(i + 1);
         }
+        sc.close();
         sb.append(str);
         for (int i = str.length() - 1; i >= 0; i--) {
             sb.append(str.charAt(i));

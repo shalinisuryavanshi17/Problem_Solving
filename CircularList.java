@@ -140,7 +140,8 @@ public class CircularList {
         CLL list = new CLL();
         for (int i = 0; i < n; i++)
             list.addAtEnd(sc.nextInt());
-
+        
+         sc.close();
         System.out.println("Circular Linked List: ");
         list.display();
 

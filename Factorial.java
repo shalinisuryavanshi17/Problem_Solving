@@ -4,6 +4,7 @@ public class Factorial {
         Scanner sc = new Scanner(System.in);
         int n=sc.nextInt();
         System.out.println(fact(n));
+        sc.close();
     }
     public static int fact(int n)
     {

@@ -38,6 +38,7 @@ public class SlidingWindow {
         }
         int k=sc.nextInt();
         System.out.println(solver(arr,k));
+        sc.close();
     }
 
     public static List<Integer> solver(int[] nums, int k){
@@ -63,4 +64,5 @@ public class SlidingWindow {
         list.add(nums[dq.pollFirst()]);
         return list;
     }
+    
 }
